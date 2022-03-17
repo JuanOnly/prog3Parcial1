@@ -1,0 +1,59 @@
+
+
+/* USER HTTP REQUESTS */
+###
+POST http://localhost:3000/user HTTP/1.1
+Content-Type: application/json
+
+{
+	"User": "Jedi Master Sky Walker",
+	"Password": "Admin",
+	"Access": {
+		"Rank": "counselor",
+		"Padawon": ["None"]
+	},
+	"Droid": {
+		"names": "bug",
+		"specifications": {
+			"type": "slimy",
+			"version": "1.1"
+		}
+	}	
+}
+
+//filter
+###
+GET http://localhost:3000/users/filter/1.1 HTTP/1.1
+
+// GET all
+###
+GET http://localhost:3000/users HTTP/1.1
+
+// GET specific
+###
+GET http://localhost:3000/users/62333d0b7522a3aa4abed798 HTTP/1.1
+
+// DELETE ONE
+###
+DELETE http://localhost:3000/users/62333d0b7522a3aa4abed798 HTTP/1.1
+
+// UPDATE ONE
+###
+PUT http://localhost:3000/users/62333d0b7522a3aa4abed798 HTTP/1.1
+Content-Type: application/json
+
+{
+	"User": "Jedi Master Luke Sky Walker",
+	"Password": "admin",
+	"Access": [{
+		"Rank": "Fallen Master",
+		"Padawon": ["Dooku"]
+	}],
+	"Droid": [{
+		"names": "R2d2",
+		"specifications":[{
+			"type": "Prubea",
+			"version": "2.3"
+		}]
+	}]
+}
